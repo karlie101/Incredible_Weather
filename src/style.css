@@ -23,6 +23,7 @@ li {
   font-size: 16px;
   font-weight: 100;
   line-height: 19px;
+  text-transform: capitalize;
 }
 
 .radar-wrapper {
@@ -58,3 +59,4 @@ li {
   font-size: 16px;
   top: -34px;
 }
+

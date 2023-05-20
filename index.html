@@ -10,6 +10,7 @@
       integrity="sha384-KK94CHFLLe+nY2dmCWGMq91rCGa5gtU4mk92HdvYe+M/SXH301p5ILy+dN9+nJOZ"
       crossorigin="anonymous"
     />
+    <script src="https://unpkg.com/axios@1.1.2/dist/axios.min.js"></script>
     <link rel="stylesheet" href="src/style.css" />
     <title>Incredible Weather</title>
   </head>
@@ -18,11 +19,10 @@
       <div class="radar-wrapper">
       <div class="radar">
         <div class="elevate">
-
-        <h1>Gulfport, MS</h1>
+        <h1 id="city"></h1>
         <ul>
           <li>Saturday 12:02</li>
-          <li>Clear with periodic clouds</li>
+          <li id="condition">Clear with periodic clouds</li>
         </ul>
         </div>
         <div class="row">
@@ -34,17 +34,15 @@
               id="icon"
             />
             <div class="units"> 
-              <strong>80</strong>
-              <span class="breeze">°C | <a href="#">°F</a> 
+              <strong id="temperature"></strong><span class="breeze">°C | <a href="#">°F</a> 
               </span>
             </div>
             </div>
           </div>
           <div class="col-6">
             <ul>
-              <li>Precipitation: 4%</li>
-              <li>Humidity: 78%</li>
-              <li>Wind: 7mph</li>
+              <li>Humidity:  <span id="humidity"></span>%</li>
+              <li>Wind:  <span id="wind"></span> mph</li>
             </ul>
           </div>
         </div>

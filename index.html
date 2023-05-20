@@ -15,19 +15,30 @@
   </head>
   <body>
     <div class="container">
+      <div class="radar-wrapper">
       <div class="radar">
+        <div class="elevate">
+
         <h1>Gulfport, MS</h1>
         <ul>
           <li>Saturday 12:02</li>
           <li>Clear with periodic clouds</li>
         </ul>
+        </div>
         <div class="row">
           <div class="col-6">
+            <div class="d-flex weather-temperature">  
             <img
               src="https://ssl.gstatic.com/onebox/weather/64/sunny_s_cloudy.png"
               alt="Clear with periodic clouds"
+              id="icon"
             />
-            80°C | °F
+            <div class="units"> 
+              <strong>80</strong>
+              <span class="breeze">°C | <a href="#">°F</a> 
+              </span>
+            </div>
+            </div>
           </div>
           <div class="col-6">
             <ul>
@@ -37,14 +48,15 @@
             </ul>
           </div>
         </div>
-        <small>
-          <a
-            href="https://github.com/karlie101/Incredible_Weather"
-            target="_blank"
-            >Open-source code</a
-          >
-          by Karlie Howard
-        </small>
+      </div>
+      <small>
+        <a
+          href="https://github.com/karlie101/Incredible_Weather"
+          target="_blank"
+          >Open-source code</a
+        >
+        by Karlie Howard
+      </small>
       </div>
     </div>
     <script src="src/action.js"></script>

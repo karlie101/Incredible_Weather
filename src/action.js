@@ -1,1 +1,0 @@
-alert("Be patience Karlie!!!");

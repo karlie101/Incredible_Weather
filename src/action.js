@@ -23,27 +23,29 @@ function formatDate(timestamp) {
 }
 
 function displayTemperature(response) {
+  console.log(response.data.daily);
   let temperatureElement = document.querySelector("#temperature");
-  temperatureElement.innerHTML = Math.round(celsiusTemperature);
   let cityElement = document.querySelector("#city");
-  cityElement.innerHTML = response.data.city;
-  let conditionElement = document.querySelector("#condition");
-  conditionElement.innerHTML = response.data.condition.description;
+  let descriptionElement = document.querySelector("#description");
+  let humidityElement = document.querySelector("#humidity");
+  let windElement = document.querySelector("#wind");
+  let dateElement = document.querySelector("#date");
+  let iconElement = document.querySelector("#icon");
 
   celsiusTemperature = response.data.temperature.current;
 
-  let humidityElement = document.querySelector("#humidity");
+  temperatureElement.innerHTML = Math.round(celsiusTemperature);
+  cityElement.innerHTML = response.data.city;
+  descriptionElement.innerHTML = response.data.condition.description;
   humidityElement.innerHTML = response.data.temperature.humidity;
-  let windElement = document.querySelector("#wind");
   windElement.innerHTML = Math.round(response.data.wind.speed);
-  let dateElement = document.querySelector("#date");
   dateElement.innerHTML = formatDate(response.data.time * 1000);
-  let iconElement = document.querySelector("#icon");
-  iconElement.setAttribute(
-    "src",
-    `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/few-clouds-day.png`
-  );
-  iconElement.setAttribute("alt", response.data.weather);
+  iconElement.setAttribute("src", `response.data.condition.icon_url`);
+  iconElement.setAttribute("alt", response.data.condition.description);
+
+  let emojie = document.querySelector("#icon");
+  console.log(response.data.condition.icon_url);
+  emojie.setAttribute("src", `${response.data.condition.icon_url}`);
 }
 
 function search(city) {

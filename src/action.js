@@ -40,14 +40,25 @@ function displayTemperature(response) {
     "src",
     `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/few-clouds-day.png`
   );
-  iconElement.setAttribute("alt", response.data.weather[0].description);
-
+  iconElement.setAttribute("alt", response.data.weather);
 }
 
+function search(city) {  
 let apiKey = "05f7bca06f5co4b63152fe40b36t5d34";
-let city = "Albany";
-let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=05f7bca06f5co4b63152fe40b36t5d34&units=metric`
-;
-
+let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
 
 axios.get(apiUrl).then(displayTemperature);
+}
+
+function controlSubmit(event) {
+  event.preventDefault();
+  let cityInputElement = document.querySelector("#city-input");
+  search(cityInputElement.value);
+}
+
+search("Paris");
+
+
+
+let form = document.querySelector("#search-form");
+form.addEventListener("submit", controlSubmit);

@@ -19,7 +19,7 @@ function formatDate(timestamp) {
     "Saturday",
   ];
   let day = days[date.getDay()];
-  return`${day} ${hours}:${minutes}`;
+  return `${day} ${hours}:${minutes}`;
 }
 
 function displayTemperature(response) {
@@ -35,10 +35,19 @@ function displayTemperature(response) {
   windElement.innerHTML = Math.round(response.data.wind.speed);
   let dateElement = document.querySelector("#date");
   dateElement.innerHTML = formatDate(response.data.time * 1000);
+  let iconElement = document.querySelector("#icon");
+  iconElement.setAttribute(
+    "src",
+    `http://shecodes-assets.s3.amazonaws.com/api/weather/icons/few-clouds-day.png`
+  );
+  iconElement.setAttribute("alt", response.data.weather[0].description);
+
 }
 
 let apiKey = "05f7bca06f5co4b63152fe40b36t5d34";
-let apiUrl =
-  "https://api.shecodes.io/weather/v1/current?query=Lisbon&key=05f7bca06f5co4b63152fe40b36t5d34&units=metric";
+let city = "Albany";
+let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=05f7bca06f5co4b63152fe40b36t5d34&units=metric`
+;
+
 
 axios.get(apiUrl).then(displayTemperature);

@@ -63,3 +63,11 @@ li:first-letter {
   top: -34px;
 }
 
+.weather-temperature .active {
+  color: black;
+  cursor: default;
+}
+
+.weather-temperature .active:hover {
+  text-decoration: none;
+}

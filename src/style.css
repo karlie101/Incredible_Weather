@@ -71,3 +71,27 @@ li:first-letter {
 .weather-temperature .active:hover {
   text-decoration: none;
 }
+
+.incredible-forecast {
+  margin-top: 20px;
+  text-align: center;
+}
+
+.incredible-forecast-date {
+  font-size: 16px;
+  color: #B0DAFF;
+}
+
+.incredible-forecast-temperatures {
+  font-size: 13px;
+
+}
+
+.incredible-forecast-temperature-max {
+  color: black;
+  font-weight: 600;
+}
+
+.incredible-forecast-temperature-min {
+  opacity: 0.5;
+}

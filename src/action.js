@@ -22,6 +22,34 @@ function formatDate(timestamp) {
   return `${day} ${hours}:${minutes}`;
 }
 
+function displayForecast() {
+  let forecastElement = document.querySelector("#forecast");
+
+  let forecastHTML = `<div class="row">`;
+  let days = ["Thu", "Fri", "Sat", "Sun", "Mon", "Tue"];
+  days.forEach(function(day) {   
+ forecastHTML = forecastHTML +
+   `
+    <div class="col-2">
+      <div class="incredible-forecast-date">${day}</div>
+      <img
+        src="http://shecodes-assets.s3.amazonaws.com/api/weather/icons/few-clouds-night.png"
+        alt=""
+        width="50"
+      />
+      <br />
+      <div class="incredible-forecast-temperatures">
+        <span class="incredible-forecast-temperature-max">17° </span>
+        <span class="incredible-forecast-temperature-min">16° </span>
+      </div>
+    </div>
+  `;
+    });
+ 
+  forecastHTML = forecastHTML+ `</div>`;
+  forecastElement.innerHTML = forecastHTML;
+}
+
 function displayTemperature(response) {
   console.log(response.data.daily);
   let temperatureElement = document.querySelector("#temperature");
@@ -31,6 +59,7 @@ function displayTemperature(response) {
   let windElement = document.querySelector("#wind");
   let dateElement = document.querySelector("#date");
   let iconElement = document.querySelector("#icon");
+
 
   celsiusTemperature = response.data.temperature.current;
 
@@ -51,7 +80,6 @@ function displayTemperature(response) {
 function search(city) {
   let apiKey = "05f7bca06f5co4b63152fe40b36t5d34";
   let apiUrl = `https://api.shecodes.io/weather/v1/current?query=${city}&key=${apiKey}&units=metric`;
-
   axios.get(apiUrl).then(displayTemperature);
 }
 
@@ -80,6 +108,7 @@ function displayCelsiusTemperature(event) {
 
 let celsiusTemperature = null;
 
+
 let form = document.querySelector("#search-form");
 form.addEventListener("submit", controlSubmit);
 
@@ -90,3 +119,4 @@ let celsiusLink = document.querySelector("#celsius-link");
 celsiusLink.addEventListener("click", displayCelsiusTemperature);
 
 search("Paris");
+displayForecast();
